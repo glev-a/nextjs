@@ -1,24 +1,36 @@
-import { Input } from 'antd';
+'use client';
+
+import { Button } from 'antd';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import FormikInput from '../components/FormikInput';
+import { SIGN_UP_INITIAL_VALUES, SIGN_UP_VALIDATION_SCHEMA } from './constants';
 
 export default function SignUp() {
+  const formik = useFormik({
+    initialValues: SIGN_UP_INITIAL_VALUES,
+    validationSchema: SIGN_UP_VALIDATION_SCHEMA,
+    onSubmit: () => {
+      // here would be submit
+    },
+  });
+
   return (
     <main className="flex min-h-screen items-center justify-center">
-      <div className="flex flex-col items-center">
-        <p className="mb-1 self-start">Email:</p>
-        <div className="mb-4">
-          <Input />
-        </div>
+      <form className="flex w-72 flex-col items-center px-2" onSubmit={formik.handleSubmit}>
+        <FormikInput label="Email" fieldName={'email'} formik={formik} />
+        <FormikInput label="Password" fieldName={'password'} formik={formik} type="password" />
+        <FormikInput
+          label="Repeat password"
+          fieldName={'repeatPassword'}
+          formik={formik}
+          type="password"
+        />
 
-        <p className="mb-1 self-start">Password:</p>
-        <div className="mb-6">
-          <Input type="password" />
-        </div>
-
-        <p className="mb-1 self-start">Repeat password:</p>
-        <div className="mb-6">
-          <Input type="password" />
-        </div>
-      </div>
+        <Button className="w-full" type="primary" htmlType="submit">
+          Submit
+        </Button>
+      </form>
     </main>
   );
 }
