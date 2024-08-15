@@ -1,3 +1,4 @@
+import Routes from '@/constants/routes';
 import { Button } from 'antd';
 import Link from 'next/link';
 
@@ -8,13 +9,13 @@ export default function Home() {
         <p className="mb-4">Cool text</p>
         <p className="mb-8">Cool image</p>
         <div className="flex w-full flex-col md:w-80 md:flex-row md:justify-between">
-          <Link href={'/sign-in'}>
+          <Link href={Routes.SignIn}>
             <Button className="mx-auto mb-4 w-full md:mb-0 md:w-36" type="primary">
               Sign In
             </Button>
           </Link>
 
-          <Link href={'/sign-up'}>
+          <Link href={Routes.SignUp}>
             <Button className="mx-auto w-full md:w-36" type="default">
               Sign Up
             </Button>

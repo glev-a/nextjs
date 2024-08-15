@@ -4,8 +4,9 @@ import { Button } from 'antd';
 import Link from 'next/link';
 import { useFormik } from 'formik';
 
-import FormikInput from '../components/FormikInput';
+import FormikInput from '../../components/FormikInput';
 import { SIGN_IN_INITIAL_VALUES, SIGN_IN_VALIDATION_SCHEMA } from './constants';
+import Routes from '@/constants/routes';
 
 export default function SignIn() {
   const formik = useFormik({
@@ -27,7 +28,7 @@ export default function SignIn() {
             Submit
           </Button>
         </form>
-        <Link href={'/forgot-password'}>
+        <Link href={Routes.ForgotPassword}>
           <p className="text-xs text-cyan-200">Forgot password?</p>
         </Link>
       </div>

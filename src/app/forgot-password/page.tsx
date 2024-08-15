@@ -3,7 +3,7 @@
 import { Button } from 'antd';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import FormikInput from '../components/FormikInput';
+import FormikInput from '../../components/FormikInput';
 import { FORGOT_PASSWORD_INITIAL_VALUES, FORGOT_PASSWORD_VALIDATION_SCHEMA } from './constants';
 
 export default function SignUp() {
